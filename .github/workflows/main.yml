@@ -10,14 +10,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Install Python
+    - uses: actions/checkout@v3
     - uses: actions/setup-python@v4
+    - name: Install Python
       with:
         python-version: '3.10'  
+        
     - name: Install Dependencies
-      run: pip install -r requirements.txt
-      shell: bash
-    - name: Run Job Seeker Python File
-      id: job-seeker
-      run: python job-seeker.py
-      shell: bash
+    - run: pip install -r requirements.txt
+      
+    - name: Run Job Seeker Python File    
+    - run: python job-seeker.py
