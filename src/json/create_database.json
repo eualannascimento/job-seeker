@@ -1,0 +1,33 @@
+{
+    "parent": {
+        "type": "page_id",
+        "page_id": "07509c51fae94e8dbf587c4371bcab32",
+    },
+    "title": [
+        {
+            "type": "text",
+            "text": {
+                "content": "oiiii"
+            }
+        }
+    ],
+    "properties": {
+        "Grocery item": {
+            "id": "fy:{",
+            "type": "title",
+            "title": {}
+        },
+        "Price": {
+            "id": "dia[",
+            "type": "number",
+            "number": {
+                "format": "dollar"
+            }
+        },
+        "Last ordered": {
+            "id": "]\\R[",
+            "type": "date",
+            "date": {}
+        }
+    }
+}
