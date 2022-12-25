@@ -27,7 +27,7 @@ def website_request(url, site_type):
     return data
 
 # Import companies dataframe and adjust some URLs for requests
-company_df = pd.read_csv('companies.csv')
+company_df = pd.read_csv('src/companies.csv')
 company_df.loc[company_df['Site'].str[-1] == '/', 'Site'] = company_df['Site'].str[:-1]
 company_df.loc[company_df['Tipo de Site'] == 'Kenoby', 'Site'] = company_df['Site'] + '/position'
 company_df.loc[company_df['Tipo de Site'] == 'Workable', 'Site'] = company_df['Site'].apply(lambda x: x.split('/')[-1])
