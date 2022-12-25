@@ -1,16 +1,17 @@
 name: 'Run Job Seeker Action'
-description: 'A GitHub Action that go through job website's, extract all jobs and insert in notion.so'
-on:
-  workflow_dispatch:
-  push:
-  schedule:
-  - cron: '0 */12 * * * '
-
-runs:
-  using: 'composite'
-  steps:
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+'on':
+  workflow_dispatch: {}
+  push: {}
+  schedule:  
+    - cron: '0 */12 * * *'
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
     - name: Install Python
-      uses: actions/setup-python@v4
+    - uses: actions/setup-python@v4
       with:
         python-version: '3.10'  
     - name: Install Dependencies
