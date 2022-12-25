@@ -39,6 +39,5 @@ headers = {
     "Authorization": "Bearer " + token
 }
 
-response = requests.post(url, json=payload, headers=headers)
-
-print(response.text)
+#response = requests.post(url, json=payload, headers=headers)
+#print(response.text)
