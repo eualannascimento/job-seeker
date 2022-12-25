@@ -57,4 +57,6 @@ for n in company_df.index:
 # Get now date/time and export dataframe to excel file
 now_sao_paulo = pytz.timezone('America/Sao_Paulo').localize(datetime.datetime.now())
 now_for_filename = now_sao_paulo.strftime("%Y_%m_%d-%H%M%S")
+full_job_df
+print(full_job_df)
 full_job_df.to_excel(rf'src/results/jobs_{now_for_filename}.xlsx', encoding='utf-8', index=False)
