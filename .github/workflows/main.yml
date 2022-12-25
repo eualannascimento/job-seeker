@@ -1,11 +1,12 @@
 # action.yaml
 name: 'Run Job Seeker Action'
 description: 'A GitHub Action that go through job website's, extract all jobs and insert in notion.so'
-on: 
-  deployment
+on:
+  workflow_dispatch:
+  push:
   schedule:
-    - cron: '0 */12 * * * '
-    
+  - cron: '0 */12 * * * '
+
 runs:
   using: 'composite'
   steps:
