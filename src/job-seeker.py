@@ -1,3 +1,7 @@
+# Remove pandas FutureWarnings
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
 # Import libs
 import os
 import re
