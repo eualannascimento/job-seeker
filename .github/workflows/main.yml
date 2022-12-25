@@ -1,4 +1,3 @@
-# action.yaml
 name: 'Run Job Seeker Action'
 description: 'A GitHub Action that go through job website's, extract all jobs and insert in notion.so'
 on:
