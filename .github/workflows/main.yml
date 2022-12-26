@@ -34,3 +34,8 @@ jobs:
       - name: Run Job Seeker Python File 
         run: |
           python src/job-seeker.py
+      
+      - name: Commit changes
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply php-cs-fixer changes
