@@ -7,27 +7,36 @@
         {
             "type": "text",
             "text": {
-                "content": "oiiii"
+                "content": "[Automação] Lista de Vagas"
             }
         }
     ],
     "properties": {
-        "Grocery item": {
-            "id": "fy:{",
+        "Título da Vaga": {
             "type": "title",
             "title": {}
         },
-        "Price": {
-            "id": "dia[",
-            "type": "number",
-            "number": {
-                "format": "dollar"
-            }
+        "Empresa": {
+            "rich_text": {}
         },
-        "Last ordered": {
-            "id": "]\\R[",
-            "type": "date",
-            "date": {}
+        "Categoria": {
+            "type": "select",
+            "select": {}
+        },
+        "Link": {
+            "type": "url",
+            "url": {}
+        },
+        "Local": {
+            "rich_text": {}
+        },
+        "Tipo de Contrato": {
+            "type": "select",
+            "select": {}
+        },
+        "Area da Vaga": {
+            "type": "multi_select",
+            "multi_select": {}
         }
     }
 }
