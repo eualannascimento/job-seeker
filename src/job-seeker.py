@@ -54,6 +54,14 @@ for n in company_df.index:
     jobs = get_array_of_jobs(website_response, company_df['Empresa'][n], company_df['Tipo de Empresa'][n], company_df['Tipo de Site'][n], company_df['Site'][n])
     full_job_df = pd.concat([full_job_df, jobs], ignore_index=True)
 
+# Apply filter dict
+def filter_dict(df, categories):
+    for key in categories.keys():
+        fixed_filter = (' ' + ' | '.join([filter for filter in categories[key]]) + ' ').upper()
+        df.loc[df['title'].str.contains(fixed_filter), 'Categoria'] = key
+    
+filter_dict(full_job_df, filters.category_dict)
+
 # Get now date/time and export dataframe to excel file
 now_sao_paulo = pytz.timezone('America/Sao_Paulo').localize(datetime.datetime.now())
 now_for_filename = now_sao_paulo.strftime("%Y_%m_%d-%H%M%S")

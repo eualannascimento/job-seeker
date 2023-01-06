@@ -43,12 +43,25 @@ var db = {
                 return o;
             }, {});
 
+
+            function verifyIndex(arrayItem, ArrayFilter) {
+                if(arrayItem === undefined){
+                     return "";
+                } else { 
+                    if(ArrayFilter === undefined){
+                        return "";
+                    } else { 
+                        return arrayItem.indexOf((ArrayFilter || "").toUpperCase());
+                    }
+                }
+            }
+
             return (
-                newJobs.title.indexOf(filter.title.toUpperCase()) != -1
-                & newJobs.company.indexOf(filter.company.toUpperCase()) != -1
-                & newJobs.company_type.indexOf(filter.company_type.toUpperCase()) != -1
-                & newJobs.location.indexOf(filter.location.toUpperCase()) != -1
-                & newJobs.Categoria.indexOf((filter.Categoria || "").toUpperCase()) != -1
+                verifyIndex(newJobs.title, filter.title) != -1
+                & verifyIndex(newJobs.company, filter.company) != -1
+                & verifyIndex(newJobs.company_type, filter.company_type) != -1
+                & verifyIndex(newJobs.location, filter.location) != -1
+                & verifyIndex(newJobs.Categoria, filter.Categoria) != -1
             );
         });
     },
@@ -99,5 +112,3 @@ $(function () {
         }
     }, "tr");
 })
-
-
