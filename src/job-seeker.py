@@ -54,12 +54,21 @@ for n in company_df.index:
     jobs = get_array_of_jobs(website_response, company_df['Empresa'][n], company_df['Tipo de Empresa'][n], company_df['Tipo de Site'][n], company_df['Site'][n])
     full_job_df = pd.concat([full_job_df, jobs], ignore_index=True)
 
-# Apply filter dict
+# Remove trailing spaces
+full_job_df['title'] = full_job_df['title'].str.replace('  ', ' ')
+full_job_df['title'] = full_job_df['title'].str.strip()
+
+# Define function to filter dict
 def filter_dict(df, categories, column_name):
     for key in categories.keys():
-        fixed_filter = (' ' + ' | '.join([filter for filter in categories[key]]) + ' ').upper().strip()
-        df.loc[df['title'].str.upper().contains(fixed_filter), column_name] = key
-    
+        fixed_filter1 = (' ' + ' | '.join([filter for filter in categories[key]]) + ' ').upper()
+        fixed_filter2 = (' ' + '| '.join([filter for filter in categories[key]])).upper()
+        fixed_filter3 = (' |'.join([filter for filter in categories[key]]) + ' ').upper()
+        df.loc[df['title'].str.upper().str.contains(fixed_filter1), column_name] = key
+        df.loc[df['title'].str.upper().str.contains(fixed_filter2), column_name] = key
+        df.loc[df['title'].str.upper().str.contains(fixed_filter3), column_name] = key
+
+# Apply filter dict
 filter_dict(full_job_df, filters.category_dict, 'category')
 filter_dict(full_job_df, filters.category_level, 'level')
 

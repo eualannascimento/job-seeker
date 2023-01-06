@@ -17,16 +17,28 @@ category_dict = {
 
 
 # level
+level_aprendiz = ['Aprendiz', 'Jovem Aprendiz']
 level_estag = ['Estag', 'Estagio', 'Estágio', 'Estagiario', 'Estagiário']
+level_assistant = ['Assistant', 'Assistente']
+level_trainee = ['Trainee']
 level_jr = ['JR', 'Junior', 'Júnior']
-level_pl = ['PL', 'Pleno' 'Plêno']
+level_pl = ['PL', 'Pleno', 'Plêno', 'Mid-level', 'Mid Level']
 level_sr = ['SR', 'Senior', 'Sênior']
 level_specialist = ['Specialist', 'Especialista']
+level_lead = ['Lead', 'Lider', 'Líder']
+level_coordinator = ['Coordinator', 'Cordenador']
+level_manager = ['Manager', 'Gerente']
 
 category_level = {
-   "Estágio" : level_estag
+   "Aprendiz" : level_aprendiz
+   ,"Estágio" : level_estag
+   ,"Assistente": level_assistant
+   ,"Trainee" : level_trainee
    ,"Junior" : level_jr
    ,"Pleno" : level_pl
    ,"Sênior" : level_sr
    ,"Especialista" : level_specialist
+   ,"Líder" : level_lead
+   ,"Coordenador" : level_coordinator
+   ,"Gerente" : level_manager
 }
