@@ -25,7 +25,9 @@ var jobs = (function () {
         'success': function (data, textStatus, request) {
             jobs = data;
             lastModified = new Date(request.getResponseHeader("Last-Modified"));
-            document.getElementById('lastModified').innerHTML = "Last update: " + lastModified;
+            dateFormat(lastModified, "DD/MM/YYYY, h:MM:ss TT");
+            document.getElementById('lastModified').innerHTML = "Atualizado a cada 12 horas - Última atualização: " + lastModified;
+            document.getElementById('jobsCount').innerHTML = "Quantidade de Vagas: " + jobs.length;
         }
     });
     return jobs;
