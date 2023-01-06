@@ -24,9 +24,16 @@ var jobs = (function () {
         'dataType': "json",
         'success': function (data, textStatus, request) {
             jobs = data;
+
             lastModified = new Date(request.getResponseHeader("Last-Modified"));
-            dateFormat(lastModified, "DD/MM/YYYY, h:MM:ss TT");
-            document.getElementById('lastModified').innerHTML = "Atualizado a cada 12 horas - Última atualização: " + lastModified;
+            dia  = lastModified.getDate().toString().padStart(2, '0'),
+            mes  = (lastModified.getMonth()+1).toString().padStart(2, '0'),
+            ano  = lastModified.getFullYear();
+            hora = lastModified.getHours();
+            minuto =  lastModified.getMinutes();
+            segundo = lastModified.getSeconds();
+            
+            document.getElementById('lastModified').innerHTML = "Atualizado a cada 12 horas - Última atualização: " + `${dia}/${mes}/${ano}, ${hora}:${minuto}:${segundo}`;
             document.getElementById('jobsCount').innerHTML = "Quantidade de Vagas: " + jobs.length;
         }
     });
