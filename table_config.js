@@ -31,9 +31,8 @@ var jobs = (function () {
             ano  = lastModified.getFullYear();
             hora = lastModified.getHours().toString().padStart(2, '0');
             minuto =  lastModified.getMinutes().toString().padStart(2, '0');
-            segundo = lastModified.getSeconds().toString().padStart(2, '0');
             
-            document.getElementById('lastModified').innerHTML = "Última atualização: " + `${dia}/${mes}/${ano} - ${hora}:${minuto}:${segundo}`;
+            document.getElementById('lastModified').innerHTML = "Última atualização: " + `${dia}/${mes}/${ano} - ${hora}:${minuto}`;
             document.getElementById('jobsCount').innerHTML = "Quantidade de Vagas: " + jobs.length;
         }
     });
