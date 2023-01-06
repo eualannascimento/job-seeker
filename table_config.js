@@ -69,7 +69,8 @@ var db = {
                 & verifyIndex(newJobs.company, filter.company) != -1
                 & verifyIndex(newJobs.company_type, filter.company_type) != -1
                 & verifyIndex(newJobs.location, filter.location) != -1
-                & verifyIndex(newJobs.Categoria, filter.Categoria) != -1
+                & verifyIndex(newJobs.category, filter.category) != -1
+                & verifyIndex(newJobs.level, filter.level) != -1
             );
         });
     },
@@ -101,7 +102,8 @@ $("#jsGrid").jsGrid({
         // { name: "url", type: "text", width: "10%" },
         { name: "location",     title: "Localização da Vaga",   type: "text", width: "10%" },
         //{ name: "contract", type: "text", width: "5%" },
-        { name: "Categoria",    title: "Categoria da Vaga",     type: "text", width: "5%" }
+        { name: "category",     title: "Categoria da Vaga",     type: "text", width: "5%" },
+        { name: "level",        title: "Nível da Vaga",         type: "text", width: "5%" }
     ],
 });
 

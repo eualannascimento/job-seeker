@@ -14,3 +14,19 @@ category_dict = {
    ,"Saúde" : category_healthtech
    ,"UX" : category_ux
 }
+
+
+# level
+level_estag = ['ESTAG', 'ESTÁGIO']
+level_jr = ['JR', 'JÚNIOR']
+level_pl = ['PL', 'PLÊNO']
+level_sr = ['SR', 'SÊNIOR']
+level_specialist = ['SPECIALIST', 'ESPECIALISTA']
+
+category_level = {
+   "Estágio" : level_estag
+   ,"Junior" : level_jr
+   ,"Pleno" : level_pl
+   ,"Sênior" : level_sr
+   ,"Especialista" : level_specialist
+}
