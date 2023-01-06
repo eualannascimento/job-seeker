@@ -17,11 +17,11 @@ category_dict = {
 
 
 # level
-level_estag = ['ESTAG', 'ESTÁGIO']
-level_jr = ['JR', 'JÚNIOR']
-level_pl = ['PL', 'PLÊNO']
-level_sr = ['SR', 'SÊNIOR']
-level_specialist = ['SPECIALIST', 'ESPECIALISTA']
+level_estag = ['Estag', 'Estagio', 'Estágio', 'Estagiario', 'Estagiário']
+level_jr = ['JR', 'Junior', 'Júnior']
+level_pl = ['PL', 'Pleno' 'Plêno']
+level_sr = ['SR', 'Senior', 'Sênior']
+level_specialist = ['Specialist', 'Especialista']
 
 category_level = {
    "Estágio" : level_estag

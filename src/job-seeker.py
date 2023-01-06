@@ -57,8 +57,8 @@ for n in company_df.index:
 # Apply filter dict
 def filter_dict(df, categories, column_name):
     for key in categories.keys():
-        fixed_filter = (' ' + ' | '.join([filter for filter in categories[key]]) + ' ').upper()
-        df.loc[df['title'].str.contains(fixed_filter), column_name] = key
+        fixed_filter = (' ' + ' | '.join([filter for filter in categories[key]]) + ' ').upper().strip()
+        df.loc[df['title'].str.upper().strip().contains(fixed_filter), column_name] = key
     
 filter_dict(full_job_df, filters.category_dict, 'category')
 filter_dict(full_job_df, filters.category_level, 'level')
