@@ -95,15 +95,12 @@ $("#jsGrid").jsGrid({
     controller: db,
 
     fields: [
-        { name: "title",        title: "Vaga",                  type: "text", width: "25%" },
-        { name: "company",      title: "Empresa",               type: "text", width: "7%"  },
-        { name: "company_type", title: "Categoria da Empresa",  type: "text", width: "5%" },
-        // { name: "site_type", type: "text", width: "5%", autosearch: true },
-        // { name: "url", type: "text", width: "10%" },
-        { name: "location",     title: "Localização da Vaga",   type: "text", width: "10%" },
-        //{ name: "contract", type: "text", width: "5%" },
-        { name: "category",     title: "Categoria da Vaga",     type: "text", width: "5%" },
-        { name: "level",        title: "Nível da Vaga",         type: "text", width: "5%" }
+        { name: "title",            title: "Vaga",                      type: "text",       width: "25%" },
+        { name: "company",          title: "Empresa",                   type: "text",       width: "7%"  },
+        { name: "company_type",     title: "Categoria da Empresa",      type: "text",       width: "5%"  },
+        { name: "location",         title: "Localização da Vaga",       type: "text",       width: "10%" },
+        { name: "category",         title: "Categoria da Vaga",         type: "text",       width: "5%"  },
+        { name: "level",            title: "Nível da Vaga",             type: "text",       width: "5%"  }
     ],
 });
 
