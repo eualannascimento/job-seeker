@@ -62,11 +62,11 @@ full_job_df['title'] = full_job_df['title'].str.strip()
 def filter_dict(df, categories, column_name):
     for key in categories.keys():
         fixed_filter1 = (' ' + ' | '.join([filter for filter in categories[key]]) + ' ').upper()
-        fixed_filter2 = (' ' + '| '.join([filter for filter in categories[key]])).upper()
-        #fixed_filter3 = (' |'.join([filter for filter in categories[key]]) + ' ').upper()
+        #fixed_filter2 = (' ' + '| '.join([filter for filter in categories[key]])).upper()
+        fixed_filter3 = (' |'.join([filter for filter in categories[key]]) + ' ').upper()
         df.loc[df['title'].str.upper().str.contains(fixed_filter1), column_name] = key
-        df.loc[df['title'].str.upper().str.contains(fixed_filter2), column_name] = key
-        #df.loc[df['title'].str.upper().str.contains(fixed_filter3), column_name] = key
+        #df.loc[df['title'].str.upper().str.contains(fixed_filter2), column_name] = key
+        df.loc[df['title'].str.upper().str.contains(fixed_filter3), column_name] = key
 
 # Apply filter dict
 filter_dict(full_job_df, filters.category_dict, 'category')
