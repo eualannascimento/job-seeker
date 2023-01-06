@@ -33,7 +33,7 @@ var jobs = (function () {
             minuto =  lastModified.getMinutes();
             segundo = lastModified.getSeconds();
             
-            document.getElementById('lastModified').innerHTML = "Atualizado a cada 12 horas - Última atualização: " + `${dia}/${mes}/${ano}, ${hora}:${minuto}:${segundo}`;
+            document.getElementById('lastModified').innerHTML = "Última atualização: " + `${dia}/${mes}/${ano} - ${hora}:${minuto}:${segundo}`;
             document.getElementById('jobsCount').innerHTML = "Quantidade de Vagas: " + jobs.length;
         }
     });
