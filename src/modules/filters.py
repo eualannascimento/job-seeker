@@ -4,19 +4,13 @@ category_finance = ['Financeiro', 'Administrativo', 'Contas a Pagar', 'Concilia�
 category_marketing = ['Marketing', 'Marketing']
 category_pharmacy = ['Farmacêutica']
 category_healthtech = ['Biomédico', 'Clínica']
+category_ux = ['UX', 'Research', 'Design Thinking', 'Usabilidade', 'Jornada', 'Jornadas']
 
 category_dict = {
-   "Data" : category_data
-   ,"Finance" : category_finance
+   "Dados" : category_data
+   ,"Finanças" : category_finance
    ,"Marketing" : category_marketing
-   ,"Pharmacy" : category_pharmacy
-   ,"HealthTech" : category_healthtech
+   ,"Farmácia" : category_pharmacy
+   ,"Saúde" : category_healthtech
+   ,"UX" : category_ux
 }
-
-category_array = [
-   category_data
-   ,category_finance
-   ,category_marketing
-   ,category_pharmacy
-   ,category_healthtech
-]
