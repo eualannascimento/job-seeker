@@ -4,7 +4,7 @@ category_finance = ['Financeiro', 'Administrativo', 'Contas a Pagar', 'Concilia�
 category_marketing = ['Marketing', 'Marketing']
 category_pharmacy = ['Farmacêutica']
 category_healthtech = ['Biomédico', 'Clínica']
-category_ux = ['UX', 'Research', 'Design Thinking', 'Usabilidade', 'Jornada', 'Jornadas']
+category_ux = ['Research', 'UX', 'Design Thinking', 'Usabilidade', 'Jornada', 'Jornadas']
 
 category_dict = {
    "Dados" : category_data

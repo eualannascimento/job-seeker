@@ -61,12 +61,16 @@ full_job_df['title'] = full_job_df['title'].str.strip()
 # Define function to filter dict
 def filter_dict(df, categories, column_name):
     for key in categories.keys():
-        fixed_filter1 = (' ' + ' | '.join([filter for filter in categories[key]]) + ' ').upper()
-        #fixed_filter2 = (' ' + '| '.join([filter for filter in categories[key]])).upper()
-        fixed_filter3 = (' |'.join([filter for filter in categories[key]]) + ' ').upper()
-        df.loc[df['title'].str.upper().str.contains(fixed_filter1), column_name] = key
-        #df.loc[df['title'].str.upper().str.contains(fixed_filter2), column_name] = key
-        df.loc[df['title'].str.upper().str.contains(fixed_filter3), column_name] = key
+        key_filter = [filter for filter in categories[key]]
+        regex = r'\b(?:{})\b'.format('|'.join(key_filter))
+        df.loc[df['title'].str.contains(regex, na=False, case=False), column_name] = key
+
+        #fixed_filter1 = (' ' + ' | '.join([filter for filter in categories[key]]) + ' ')
+        #fixed_filter2 = (' ' + '| '.join([filter for filter in categories[key]]))
+        #fixed_filter3 = (' |'.join([filter for filter in categories[key]]) + ' ')
+        #df.loc[df['title'].str.contains(fixed_filter1, na=False, case=False), column_name] = key
+        #df.loc[df['title'].str.contains(fixed_filter2, na=False, case=False), column_name] = key
+        #df.loc[df['title'].str.contains(fixed_filter3, na=False, case=False), column_name] = key
 
 # Apply filter dict
 filter_dict(full_job_df, filters.category_dict, 'category')
