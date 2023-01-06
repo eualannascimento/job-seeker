@@ -29,9 +29,9 @@ var jobs = (function () {
             dia  = lastModified.getDate().toString().padStart(2, '0'),
             mes  = (lastModified.getMonth()+1).toString().padStart(2, '0'),
             ano  = lastModified.getFullYear();
-            hora = lastModified.getHours();
-            minuto =  lastModified.getMinutes();
-            segundo = lastModified.getSeconds();
+            hora = lastModified.getHours().toString().padStart(2, '0');
+            minuto =  lastModified.getMinutes().toString().padStart(2, '0');
+            segundo = lastModified.getSeconds().toString().padStart(2, '0');
             
             document.getElementById('lastModified').innerHTML = "Última atualização: " + `${dia}/${mes}/${ano} - ${hora}:${minuto}:${segundo}`;
             document.getElementById('jobsCount').innerHTML = "Quantidade de Vagas: " + jobs.length;
