@@ -67,11 +67,16 @@ def filter_dict(df, search_column, filter_dict, new_column_name):
         key_filter = [unidecode(filter) for filter in filter_dict[key]]
         regex = r'\b(?:{})\b'.format('|'.join(key_filter))
         df.loc[df[search_column].apply(unidecode).str.contains(regex, na=False, case=False), new_column_name] = key
-        df.loc[df[new_column_name].isnull(), new_column_name] = "99 - ?"
+        if (new_column_name == 'remote?'):
+            df.loc[df[new_column_name].isnull(), new_column_name] = 0
+        else:
+            df.loc[df[new_column_name].isnull(), new_column_name] = "99 - ?"
 
 # Apply filter dict
 filter_dict(full_job_df, 'title', filters.dict_category, 'category')
 filter_dict(full_job_df, 'title', filters.dict_level, 'level')
+filter_dict(full_job_df, 'location', filters.dict_contract, 'remote?')
+filter_dict(full_job_df, 'title', filters.dict_contract, 'remote?')
 
 # Get now date/time and export dataframe to excel file
 now_sao_paulo = pytz.timezone('America/Sao_Paulo').localize(datetime.datetime.now())

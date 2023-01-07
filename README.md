@@ -10,6 +10,7 @@ Seu objetivo é conseguir centralizar, normalizar e padronizar as vagas ativas e
 [ ] Ajustar a usabilidade da página (Github Pages) nos dispositivos móveis <br/>
 [ ] Manter as vagas que foram desativadas e criar tal marcação <br/>
 [ ] Criar segmentação: categoria da vaga (dados, finanças, etc..) e se a vaga permite trabalho remoto <br/>
+[ ] Criar busca via URL/API, exemplo de busca de categoria de vaga: https://eualannascimento.github.io/job-seeker/?category=dados
 
 <br/>
 -> Plataformas que a busca está implementada:

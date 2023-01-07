@@ -1,4 +1,6 @@
+# ----------------------------------------------------------------------------------------------------------
 # category
+# ----------------------------------------------------------------------------------------------------------
 category_data = ['Data', 'Dados', 'Business Intelligence', 'BI', 'Informações Gerenciais', 'Informacoes Gerenciais', 'Intelligence', 'Inteligência', 'DataViz', 'Data Viz' , 'Visualization', 'Analytics', 'CRM']
 category_finance = ['Financeiro', 'Administrativo', 'Contas a Pagar', 'Conciliação']
 category_marketing = ['Marketing', 'Marketing']
@@ -15,9 +17,10 @@ dict_category = {
    ,"UX" : category_ux
 }
 
-
+# ----------------------------------------------------------------------------------------------------------
 # level
 # based = https://www.catho.com.br/salario/action/artigos/Conceituacao_de_Niveis_Hierarquicos.php
+# ----------------------------------------------------------------------------------------------------------
 level_00_banco_de_talentos    = ['Banco de Talentos', 'Vaga Banco', 'Trabalhe Conosco', 'Talentos']
 level_01_aprendiz             = ['Aprendiz', 'Jovem Aprendiz']
 level_02_estag                = ['Estag', 'Estágio', 'Estagiário', 'Pessoa Estagiária']
@@ -58,4 +61,14 @@ dict_level = {
    ,"16 - Gerente Sênior"           :level_16_sr_manager        
    ,"17 - Superintendente"          :level_17_superintendente   
    ,"18 - Diretor"                  :level_18_diretor           
+}
+
+
+# ----------------------------------------------------------------------------------------------------------
+# remote?
+# ----------------------------------------------------------------------------------------------------------
+contract_remote = ['Remote', 'Remoto', 'Remota', 'Homeoffice', 'Home-office', 'Homeoffice']
+
+dict_contract = {
+   1:contract_remote
 }
