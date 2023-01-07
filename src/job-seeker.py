@@ -55,26 +55,19 @@ for n in company_df.index:
     jobs = get_array_of_jobs(website_response, company_df['Empresa'][n], company_df['Tipo de Empresa'][n], company_df['Tipo de Site'][n], company_df['Site'][n])
     full_job_df = pd.concat([full_job_df, jobs], ignore_index=True)
 
-# Remove trailing spaces
+# Adjust titles (remove trailing spaces, underlines, etc)
 full_job_df['title'] = full_job_df['title'].str.replace('_', ' ')
 full_job_df['title'] = full_job_df['title'].str.replace('  ', ' ')
-#full_job_df['title'] = full_job_df['title'].str.replace(" )", ")")
-#full_job_df['title'] = full_job_df['title'].str.replace("( ", "(")
+full_job_df['title'] = [re.sub(r"(?<=\()\s+|\s+(?=\))", "", str(x)) for x in full_job_df['title']]
 full_job_df['title'] = full_job_df['title'].str.strip()
+full_job_df[(full_job_df['company'] == "Ambev") & (full_job_df['location'] == "PELOTAS/RS")]
 
 # Define function to filter dict
 def filter_dict(df, search_column, filter_dict, new_column_name):
     for key in filter_dict.keys():
-        key_filter = [filter for filter in filter_dict[key]]
-        regex = r'\b(?:{})\b'.format('|'.join(unidecode(key_filter)))
-        df.loc[unidecode(df[search_column]).str.contains(regex, na=False, case=False), new_column_name] = key
-
-        #fixed_filter1 = (' ' + ' | '.join([filter for filter in filter_dict[key]]) + ' ')
-        #fixed_filter2 = (' ' + '| '.join([filter for filter in filter_dict[key]]))
-        #fixed_filter3 = (' |'.join([filter for filter in filter_dict[key]]) + ' ')
-        #df.loc[df[search_column].str.contains(fixed_filter1, na=False, case=False), column_name] = key
-        #df.loc[df[search_column].str.contains(fixed_filter2, na=False, case=False), column_name] = key
-        #df.loc[df[search_column].str.contains(fixed_filter3, na=False, case=False), column_name] = key
+        key_filter = [unidecode(filter) for filter in filter_dict[key]]
+        regex = r'\b(?:{})\b'.format('|'.join(key_filter))
+        df.loc[unidecode(df[search_column].str).contains(regex, na=False, case=False), new_column_name] = key
 
 # Apply filter dict
 filter_dict(full_job_df, 'title', filters.dict_category, 'category')

@@ -48,6 +48,7 @@ var db = {
 
             var newJobs = Object.keys(group).reduce(function (o, k) {
                 o[k] = (group[k] || "").toUpperCase();
+                
                 return o;
             }, {});
 
@@ -59,7 +60,10 @@ var db = {
                     if(ArrayFilter === undefined){
                         return "";
                     } else { 
-                        return arrayItem.indexOf((ArrayFilter || "").toUpperCase());
+                        removedAccentArrayItem = arrayItem.normalize('NFD').replace(/\p{Diacritic}/gu, ""); // Old method: .replace(/[\u0300-\u036f]/g, "");
+                        removedAccentArrayFilter = ArrayFilter.normalize('NFD').replace(/\p{Diacritic}/gu, ""); // Old method: .replace(/[\u0300-\u036f]/g, "");
+
+                        return removedAccentArrayItem.indexOf((removedAccentArrayFilter || "").toUpperCase());
                     }
                 }
             }
