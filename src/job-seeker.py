@@ -56,25 +56,27 @@ for n in company_df.index:
 
 # Remove trailing spaces
 full_job_df['title'] = full_job_df['title'].str.replace('  ', ' ')
+full_job_df['title'] = full_job_df['title'].str.replace(' )', ')')
+full_job_df['title'] = full_job_df['title'].str.replace('( ', '(')
 full_job_df['title'] = full_job_df['title'].str.strip()
 
 # Define function to filter dict
-def filter_dict(df, categories, column_name):
-    for key in categories.keys():
-        key_filter = [filter for filter in categories[key]]
+def filter_dict(df, search_column, filter_dict, new_column_name):
+    for key in filter_dict.keys():
+        key_filter = [filter for filter in filter_dict[key]]
         regex = r'\b(?:{})\b'.format('|'.join(key_filter))
-        df.loc[df['title'].str.contains(regex, na=False, case=False), column_name] = key
+        df.loc[df[search_column].str.contains(regex, na=False, case=False), new_column_name] = key
 
-        #fixed_filter1 = (' ' + ' | '.join([filter for filter in categories[key]]) + ' ')
-        #fixed_filter2 = (' ' + '| '.join([filter for filter in categories[key]]))
-        #fixed_filter3 = (' |'.join([filter for filter in categories[key]]) + ' ')
-        #df.loc[df['title'].str.contains(fixed_filter1, na=False, case=False), column_name] = key
-        #df.loc[df['title'].str.contains(fixed_filter2, na=False, case=False), column_name] = key
-        #df.loc[df['title'].str.contains(fixed_filter3, na=False, case=False), column_name] = key
+        #fixed_filter1 = (' ' + ' | '.join([filter for filter in filter_dict[key]]) + ' ')
+        #fixed_filter2 = (' ' + '| '.join([filter for filter in filter_dict[key]]))
+        #fixed_filter3 = (' |'.join([filter for filter in filter_dict[key]]) + ' ')
+        #df.loc[df[search_column].str.contains(fixed_filter1, na=False, case=False), column_name] = key
+        #df.loc[df[search_column].str.contains(fixed_filter2, na=False, case=False), column_name] = key
+        #df.loc[df[search_column].str.contains(fixed_filter3, na=False, case=False), column_name] = key
 
 # Apply filter dict
-filter_dict(full_job_df, filters.category_dict, 'category')
-filter_dict(full_job_df, filters.category_level, 'level')
+filter_dict(full_job_df, 'title', filters.dict_category, 'category')
+filter_dict(full_job_df, 'title', filters.dict_level, 'level')
 
 # Get now date/time and export dataframe to excel file
 now_sao_paulo = pytz.timezone('America/Sao_Paulo').localize(datetime.datetime.now())

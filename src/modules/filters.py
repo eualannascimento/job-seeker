@@ -6,7 +6,7 @@ category_pharmacy = ['Farmacêutica']
 category_healthtech = ['Biomédico', 'Clínica']
 category_ux = ['Research', 'UX', 'Design Thinking', 'Usabilidade', 'Jornada', 'Jornadas']
 
-category_dict = {
+dict_category = {
    "Dados" : category_data
    ,"Finanças" : category_finance
    ,"Marketing" : category_marketing
@@ -17,27 +17,28 @@ category_dict = {
 
 
 # level
-level_00_banco_de_talentos    = ['Banco de Talentos']
+# based = https://www.catho.com.br/salario/action/artigos/Conceituacao_de_Niveis_Hierarquicos.php
+level_00_banco_de_talentos    = ['Banco de Talentos', 'Vaga Banco', 'Trabalhe Conosco', 'Talentos']
 level_01_aprendiz             = ['Aprendiz', 'Jovem Aprendiz']
-level_02_estag                = ['Estag', 'Estagio', 'Estágio', 'Estagiario', 'Estagiário']
-level_03_auxiliar_ajudante    = ['Auxiliar', 'Ajudante']
+level_02_estag                = ['Estag', 'Estagio', 'Estágio', 'Estagiario', 'Estagiário', 'Pessoa Estagiária']
+level_03_auxiliar_ajudante    = ['Auxiliar', 'Ajudante', 'Escriturário']
 level_04_assistente           = ['Assistant', 'Assistente']
 level_05_tecnico              = ['Tecnico', 'Técnico']
 level_06_trainee              = ['Trainee']
-level_07_jr                   = ['JR', 'Junior', 'Júnior']
-level_08_pl                   = ['PL', 'Pleno', 'Plêno', 'Mid-level', 'Mid Level']
-level_09_sr                   = ['SR', 'Senior', 'Sênior']
-level_10_consultor            = ['Consultant', 'Consultor']
+level_07_jr                   = [' I','JR', 'Junior', 'Júnior']
+level_08_pl                   = [' II', 'PL', 'Pleno', 'Plêno', 'Mid-level', 'Mid Level']
+level_09_sr                   = [' III', 'SR', 'Senior', 'Sênior']
+level_10_consultor            = ['Consultant', 'Consultor', 'Consultora']
 level_11_specialist           = ['Specialist', 'Especialista']
-level_12_lead                 = ['Lead', 'Lider', 'Líder']
+level_12_lead                 = ['Lead', 'Lider', 'Líder', 'Leader']
 level_13_supervisor           = ['Supervisor']
-level_14_coordinator          = ['Coordinator', 'Cordenador', 'Coordenadora']
+level_14_coordinator          = ['Coordinator', 'Coordenador', 'Coordenadora']
 level_15_manager              = ['Manager', 'Gerente']
-level_16_sr_manager           = ['SR Manager', 'Gerente Senior', 'Gerente Sênior', 'Gerente Departamental']
+level_16_sr_manager           = ['SR Manager', 'Senior Manager', 'Gerente Senior', 'Gerente Sênior', 'Gerente Departamental']
 level_17_superintendente      = ['Superintendente']
 level_18_diretor              = ['Diretor']
 
-category_level = {
+dict_level = {
    "00 - Banco de Talentos"         :level_00_banco_de_talentos 
    ,"01 - Aprendiz"                 :level_01_aprendiz          
    ,"02 - Estágiario"               :level_02_estag             
