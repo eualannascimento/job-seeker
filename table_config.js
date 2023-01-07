@@ -47,21 +47,25 @@ var db = {
         return $.grep(jobs, function (group) {
 
             var newJobs = Object.keys(group).reduce(function (o, k) {
-                o[k] = (group[k] || "").toUpperCase();
+                if (isNaN(groups[k])) {
+                    o[k] = (group[k] || "").toUpperCase();
+                } else {
+                    o[k] = group[k]
+                }
                 
                 return o;
             }, {});
 
 
-            function verifyIndex(arrayItem, ArrayFilter) {
+            function verifyIndex(arrayItem, arrayFilter) {
                 if(arrayItem === undefined){
                      return "";
                 } else { 
-                    if(ArrayFilter === undefined){
+                    if(arrayFilter === undefined){
                         return "";
                     } else { 
                         removedAccentArrayItem = arrayItem.normalize('NFD').replace(/\p{Diacritic}/gu, ""); // Old method: .replace(/[\u0300-\u036f]/g, "");
-                        removedAccentArrayFilter = ArrayFilter.normalize('NFD').replace(/\p{Diacritic}/gu, ""); // Old method: .replace(/[\u0300-\u036f]/g, "");
+                        removedAccentArrayFilter = arrayFilter.normalize('NFD').replace(/\p{Diacritic}/gu, ""); // Old method: .replace(/[\u0300-\u036f]/g, "");
 
                         return removedAccentArrayItem.indexOf((removedAccentArrayFilter || "").toUpperCase());
                     }
