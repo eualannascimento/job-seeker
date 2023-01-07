@@ -12,6 +12,7 @@ import requests
 import openpyxl
 import pandas as pd
 from bs4 import BeautifulSoup
+from unidecode import unidecode
 
 # Import my libs
 import modules.filters as filters
@@ -55,6 +56,7 @@ for n in company_df.index:
     full_job_df = pd.concat([full_job_df, jobs], ignore_index=True)
 
 # Remove trailing spaces
+full_job_df['title'] = full_job_df['title'].str.replace('_', ' ')
 full_job_df['title'] = full_job_df['title'].str.replace('  ', ' ')
 full_job_df['title'] = full_job_df['title'].str.replace(' )', ')')
 full_job_df['title'] = full_job_df['title'].str.replace('( ', '(')
@@ -64,8 +66,8 @@ full_job_df['title'] = full_job_df['title'].str.strip()
 def filter_dict(df, search_column, filter_dict, new_column_name):
     for key in filter_dict.keys():
         key_filter = [filter for filter in filter_dict[key]]
-        regex = r'\b(?:{})\b'.format('|'.join(key_filter))
-        df.loc[df[search_column].str.contains(regex, na=False, case=False), new_column_name] = key
+        regex = r'\b(?:{})\b'.format('|'.join(unidecode(key_filter)))
+        df.loc[unidecode(df[search_column]).str.contains(regex, na=False, case=False), new_column_name] = key
 
         #fixed_filter1 = (' ' + ' | '.join([filter for filter in filter_dict[key]]) + ' ')
         #fixed_filter2 = (' ' + '| '.join([filter for filter in filter_dict[key]]))
