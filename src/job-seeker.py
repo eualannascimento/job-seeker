@@ -58,8 +58,8 @@ for n in company_df.index:
 # Remove trailing spaces
 full_job_df['title'] = full_job_df['title'].str.replace('_', ' ')
 full_job_df['title'] = full_job_df['title'].str.replace('  ', ' ')
-full_job_df['title'] = full_job_df['title'].str.replace(' )', ')')
-full_job_df['title'] = full_job_df['title'].str.replace('( ', '(')
+full_job_df['title'] = full_job_df['title'].str.replace(" )", ")")
+full_job_df['title'] = full_job_df['title'].str.replace("( ", "(")
 full_job_df['title'] = full_job_df['title'].str.strip()
 
 # Define function to filter dict
