@@ -47,7 +47,7 @@ var db = {
         return $.grep(jobs, function (group) {
 
             var newJobs = Object.keys(group).reduce(function (o, k) {
-                if (isNaN(groups[k])) {
+                if (isNaN(group[k])) {
                     o[k] = (group[k] || "").toUpperCase();
                 } else {
                     o[k] = group[k]
@@ -58,16 +58,21 @@ var db = {
 
 
             function verifyIndex(arrayItem, arrayFilter) {
-                if(arrayItem === undefined){
-                     return "";
+                if(arrayItem === undefined || arrayFilter === undefined || arrayFilter === "" || arrayFilter === ""){
+                     //return "";
+                     return false;
                 } else { 
-                    if(arrayFilter === undefined){
-                        return "";
-                    } else { 
+                    if(isNaN(arrayItem) || isNaN(arrayFilter)){
                         removedAccentArrayItem = arrayItem.normalize('NFD').replace(/\p{Diacritic}/gu, ""); // Old method: .replace(/[\u0300-\u036f]/g, "");
                         removedAccentArrayFilter = arrayFilter.normalize('NFD').replace(/\p{Diacritic}/gu, ""); // Old method: .replace(/[\u0300-\u036f]/g, "");
-
+                        
                         return removedAccentArrayItem.indexOf((removedAccentArrayFilter || "").toUpperCase());
+                    } else {
+                        if ((!!arrayItem == arrayFilter)) {
+                            return 0;
+                        } else {
+                            return -1;
+                        }
                     }
                 }
             }
