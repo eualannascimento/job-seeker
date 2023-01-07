@@ -23,14 +23,14 @@ dict_category = {
 # ----------------------------------------------------------------------------------------------------------
 level_00_banco_de_talentos    = ['Banco de Talentos', 'Vaga Banco', 'Trabalhe Conosco', 'Talentos']
 level_01_aprendiz             = ['Aprendiz', 'Jovem Aprendiz']
-level_02_estag                = ['Estag', 'Estágio', 'Estagiário', 'Pessoa Estagiária']
+level_02_estag                = ['Estag', 'Estágio', 'Estagiário', 'Estagiária']
 level_03_auxiliar_ajudante    = ['Auxiliar', 'Ajudante', 'Escriturário']
 level_04_assistente           = ['Assistant', 'Assistente']
-level_05_tecnico              = ['Técnico']
+level_05_tecnico              = ['Técnico', 'Técnica']
 level_06_trainee              = ['Trainee']
-level_07_jr                   = [' I','JR', 'Junior']
-level_08_pl                   = [' II', 'PL', 'Pleno', 'Mid-level', 'Mid Level']
-level_09_sr                   = [' III', 'SR', 'Senior']
+level_07_jr                   = ['JR', 'Junior']
+level_08_pl                   = ['PL', 'Pleno', 'Mid-level', 'Mid Level']
+level_09_sr                   = ['SR', 'Senior']
 level_10_consultor            = ['Consultant', 'Consultor', 'Consultora']
 level_11_specialist           = ['Specialist', 'Especialista']
 level_12_lead                 = ['Lead', 'Lider', 'Leader']
@@ -41,8 +41,18 @@ level_16_sr_manager           = ['SR Manager', 'Senior Manager', 'Gerente Senior
 level_17_superintendente      = ['Superintendente']
 level_18_diretor              = ['Diretor']
 
+level_excecao_jr              = [' I']
+level_excecao_pl              = [' II']
+level_excecao_sr              = [' III']
+
 dict_level = {
-   "00 - Banco de Talentos"         :level_00_banco_de_talentos 
+   # Exceção     
+   "07 - Júnior"                    :level_excecao_jr                
+   ,"08 - Pleno"                    :level_excecao_pl                
+   ,"09 - Sênior"                   :level_excecao_sr      
+
+   # Padrão
+   ,"00 - Banco de Talentos"        :level_00_banco_de_talentos 
    ,"01 - Aprendiz"                 :level_01_aprendiz          
    ,"02 - Estágiario"               :level_02_estag             
    ,"03 - Auxiliar/Ajudante"        :level_03_auxiliar_ajudante 
@@ -66,6 +76,16 @@ dict_level = {
 
 # ----------------------------------------------------------------------------------------------------------
 # remote?
+# ----------------------------------------------------------------------------------------------------------
+contract_remote = ['Remote', 'Remoto', 'Remota', 'Homeoffice', 'Home-office', 'Homeoffice']
+
+dict_contract = {
+   1:contract_remote
+}
+
+
+# ----------------------------------------------------------------------------------------------------------
+# pcd?
 # ----------------------------------------------------------------------------------------------------------
 contract_remote = ['Remote', 'Remoto', 'Remota', 'Homeoffice', 'Home-office', 'Homeoffice']
 
