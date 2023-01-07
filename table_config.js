@@ -73,6 +73,7 @@ var db = {
                 & verifyIndex(newJobs.company, filter.company) != -1
                 & verifyIndex(newJobs.company_type, filter.company_type) != -1
                 & verifyIndex(newJobs.location, filter.location) != -1
+                & verifyIndex(newJobs['remote?'], filter['remote?']) != -1
                 & verifyIndex(newJobs.category, filter.category) != -1
                 & verifyIndex(newJobs.level, filter.level) != -1
             );
