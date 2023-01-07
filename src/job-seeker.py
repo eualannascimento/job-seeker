@@ -64,10 +64,11 @@ full_job_df[(full_job_df['company'] == "Ambev") & (full_job_df['location'] == "P
 
 # Define function to filter dict
 def filter_dict(df, search_column, filter_dict, new_column_name):
+    df[search_column] = df[search_column].apply(unidecode)
     for key in filter_dict.keys():
         key_filter = [unidecode(filter) for filter in filter_dict[key]]
         regex = r'\b(?:{})\b'.format('|'.join(key_filter))
-        df.loc[unidecode(df[search_column].str).contains(regex, na=False, case=False), new_column_name] = key
+        df.loc[df[search_column].str.contains(regex, na=False, case=False), new_column_name] = key
 
 # Apply filter dict
 filter_dict(full_job_df, 'title', filters.dict_category, 'category')
