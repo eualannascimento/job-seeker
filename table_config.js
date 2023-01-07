@@ -85,7 +85,7 @@ var db = {
 // Configure jsGrid
 //----------------------------------------------
 $("#jsGrid").jsGrid({
-    width: "75%",
+    width: "85%",
     height: "35em",
     filtering: true,
     heading: true,
@@ -99,12 +99,12 @@ $("#jsGrid").jsGrid({
     controller: db,
 
     fields: [
-        { name: "title",            title: "Vaga",                      type: "text",       width: "25%" },
+        { name: "title",            title: "Vaga",                      type: "text",       width: "30%" },
         { name: "company",          title: "Empresa",                   type: "text",       width: "7%"  },
-        { name: "company_type",     title: "Categoria da Empresa",      type: "text",       width: "5%"  },
+        { name: "company_type",     title: "Categoria da Empresa",      type: "text",       width: "7%"  },
         { name: "location",         title: "Localização da Vaga",       type: "text",       width: "10%" },
-        { name: "category",         title: "Categoria da Vaga",         type: "text",       width: "5%"  },
-        { name: "level",            title: "Nível da Vaga",             type: "text",       width: "5%"  }
+        { name: "category",         title: "Categoria da Vaga",         type: "text",       width: "3%"  },
+        { name: "level",            title: "Nível da Vaga",             type: "text",       width: "7%"  }
     ],
 });
 

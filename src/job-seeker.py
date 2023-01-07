@@ -67,7 +67,7 @@ def filter_dict(df, search_column, filter_dict, new_column_name):
         key_filter = [unidecode(filter) for filter in filter_dict[key]]
         regex = r'\b(?:{})\b'.format('|'.join(key_filter))
         df.loc[df[search_column].apply(unidecode).str.contains(regex, na=False, case=False), new_column_name] = key
-        df.loc[df[new_column_name].isnull(), new_column_name] = "99 - Não categorizado"
+        df.loc[df[new_column_name].isnull(), new_column_name] = "99 - ?"
 
 # Apply filter dict
 filter_dict(full_job_df, 'title', filters.dict_category, 'category')
