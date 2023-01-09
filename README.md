@@ -15,8 +15,8 @@ Seu objetivo é conseguir centralizar, normalizar e padronizar as vagas ativas e
     [ ] PCD? <br/>
     [ ] Afirmativa? <br/>
     [ ] Vaga é Temporária/Freela/Contrato? <br/>
-[ ] Normalizar localização
-[ ] Criar busca via URL/API, exemplo de busca de categoria de vaga: https://eualannascimento.github.io/job-seeker/?category=dados
+[ ] Normalizar localização <br/>
+[ ] Criar busca via URL/API, exemplo de busca de categoria de vaga: https://eualannascimento.github.io/job-seeker/?category=dados <br/>
 
 <br/>
 -> Plataformas que a busca está implementada:
@@ -31,3 +31,4 @@ Seu objetivo é conseguir centralizar, normalizar e padronizar as vagas ativas e
 [ ] InfoJobs <br/>
 [ ] LinkedIn <br/>
 [ ] Workday <br/>
+[ ] Quickin.io - sample: s.get("https://jobs.quickin.io/paranabanco/jobs", cookies={"src": "WebSite"}) <br/>
