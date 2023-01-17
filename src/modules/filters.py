@@ -7,6 +7,7 @@ category_marketing = ['Marketing', 'Marketing']
 category_pharmacy = ['Farmacêutica']
 category_healthtech = ['Biomédico', 'Clínica']
 category_ux = ['Research', 'UX', 'Design Thinking', 'Usabilidade', 'Jornada', 'Jornadas']
+category_rh = ['rh','recursos humanos', 'gerente de recursos humanos', 'coordenador de recursos humanos', 'analista de recursos humanos', 'assistente de recursos humanos', 'especialista em recrutamento e seleção', 'treinamento e desenvolvimento', 'gestão de pessoas', 'rh estratégico', 'gestão de carreira','benefícios e compensações', 'desenvolvimento organizacional', 'políticas de rh', 'compliance de rh','gestão de performance', 'gestão de mudanças'],
 
 dict_category = {
    "Dados" : category_data
@@ -15,6 +16,7 @@ dict_category = {
    ,"Farmácia" : category_pharmacy
    ,"Saúde" : category_healthtech
    ,"UX" : category_ux
+   ,"RH" : category_rh
 }
 
 # ----------------------------------------------------------------------------------------------------------
