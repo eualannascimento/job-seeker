@@ -1,8 +1,11 @@
 name: Job B
-on:
-  push:
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+
+'on':
+  push: {}
+
 jobs:
-  job_b:
+  build:
     runs-on: ubuntu-latest
     name: Job B
     needs: ${{ github.event.inputs.job_a_id }}
