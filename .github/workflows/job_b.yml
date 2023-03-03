@@ -7,15 +7,21 @@ on:
       - completed
 
 jobs:
-  build:
-    needs: job-seeker
+  check_job_seeker:
     runs-on: ubuntu-latest
-
+    steps:
+      - name: Check Job Seeker Output
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        run: |
+          echo "Job Seeker completed successfully."
+    
+  build:
+    needs: check_job_seeker
+    runs-on: ubuntu-latest
     steps:
       - name: Github Checkout
         uses: actions/checkout@v2
 
       - name: Run Another Action After Job Seeker
-        if: ${{ success() }}
         run: |
           echo "Job Seeker completed successfully."
