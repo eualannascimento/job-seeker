@@ -22,6 +22,22 @@ jobs:
       - name: Github Checkout
         uses: actions/checkout@v2
 
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: Vagas disponíveis
+          to: ${{ secrets.MAIL_TO }}
+          from: ${{ secrets.MAIL_TO }}
+          body: |
+            Olá,
+            Segue abaixo as vagas disponíveis:
+          html_body: file://src/html/new_data_jobs.html
+
       - name: Run Another Action After Job Seeker
         run: |
           echo "Job Seeker completed successfully."
