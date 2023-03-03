@@ -15,7 +15,7 @@ jobs:
         python-version: ["3.10"]
     
     outputs:
-      job_a_output: ${{ steps.job_a_step1.outputs.some_output }}
+      job-seeker-output: ${{ steps.run-job-seeker.outputs.job-seeker-output }}
 
     steps:
       - name: Github Checkout

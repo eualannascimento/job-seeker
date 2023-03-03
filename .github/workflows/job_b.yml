@@ -1,16 +1,21 @@
-name: Job B
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-
-'on':
-  push: {}
+name: 'Run Another Action'
+on:
+  workflow_run:
+    workflows:
+      - 'Run Job Seeker Action'
+    types:
+      - completed
 
 jobs:
   build:
+    needs: job-seeker
     runs-on: ubuntu-latest
-    name: Job B
-    needs: ${{ github.event.inputs.job_a_id }}
+
     steps:
-      - name: Step 1
-        run: echo "Job A output: ${{ needs.job_a.outputs.job_a_output }}"
-      - name: Step 2
-        run: echo "Good job!"
+      - name: Github Checkout
+        uses: actions/checkout@v2
+
+      - name: Run Another Action After Job Seeker
+        if: ${{ success() }}
+        run: |
+          echo "Job Seeker completed successfully."
