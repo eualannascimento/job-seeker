@@ -35,8 +35,13 @@ jobs:
           from: ${{ secrets.MAIL_TO }}
           body: |
             Olá,
+
             Segue abaixo as vagas disponíveis:
-          html_body: file://src/html/new_data_jobs.html
+
+            $(cat README.md)
+
+            $(cat src/html/new_data_jobs.html)
+          content_type: 'text/html'
 
       - name: Run Another Action After Job Seeker
         run: |
