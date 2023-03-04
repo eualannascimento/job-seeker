@@ -33,15 +33,15 @@ jobs:
           subject: Vagas disponíveis
           to: ${{ secrets.MAIL_TO }}
           from: ${{ secrets.MAIL_TO }}
-          body: |
-            Olá,
-
-            Segue abaixo as vagas disponíveis:
-
-            ${{ file('README.md') }}
-
-            ${{ file('src/html/new_data_jobs.html') }}
+          run: |
+            echo "Olá,"
+            echo ""
+            echo "Segue abaixo as vagas disponíveis:"
+            echo ""
+            cat README.md
+            cat src/html/new_data_jobs.html
           content_type: "text/html"
+
 
       - name: Run Another Action After Job Seeker
         run: |
