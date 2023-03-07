@@ -22,6 +22,9 @@ jobs:
       - name: Github Checkout
         uses: actions/checkout@v2
         
+      - name: Install pandoc
+        run: sudo apt-get install -y pandoc
+
       - name: Transform Text to HTML
         run: |
           pandoc -f markdown -t html -o README.html README.md
@@ -43,7 +46,6 @@ jobs:
           from: ${{ secrets.MAIL_TO }}
           html_body: file://merged.html
           content_type: "text/html"
-
 
       - name: Run Another Action After Job Seeker
         run: |
