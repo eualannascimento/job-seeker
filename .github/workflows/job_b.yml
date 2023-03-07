@@ -21,6 +21,14 @@ jobs:
     steps:
       - name: Github Checkout
         uses: actions/checkout@v2
+        
+      - name: Transform Text to HTML
+        run: |
+          pandoc -f markdown -t html -o README.html README.md
+
+      - name: Concatenate Files
+        run: |
+          cat README.html src/html/new_data_jobs.html > merged.html
 
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
@@ -33,13 +41,7 @@ jobs:
           subject: Vagas disponíveis
           to: ${{ secrets.MAIL_TO }}
           from: ${{ secrets.MAIL_TO }}
-          run: |
-            echo "Olá,"
-            echo ""
-            echo "Segue abaixo as vagas disponíveis:"
-            echo ""
-            cat README.md
-            cat src/html/new_data_jobs.html
+          html_body: file://merged.html
           content_type: "text/html"
 
 
